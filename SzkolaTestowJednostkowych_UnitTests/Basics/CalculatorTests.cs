@@ -10,6 +10,7 @@ namespace SzkolaTestowJednostkowych_UnitTests.Basics
 {
     public class CalculatorTests
     {
+        [Test]
         //NazwaMetody_Scenariusz_OczekiwanyRezultat
         public void Add_WhenCalled_ShouldReturnSum()
         {
@@ -20,7 +21,7 @@ namespace SzkolaTestowJednostkowych_UnitTests.Basics
             var result = calculator.Add(1, 2);
 
             //Assert
-            Assert.Equals(3, result);
+            Assert.That(result,Is.EqualTo(3));
         }
     }
 }
