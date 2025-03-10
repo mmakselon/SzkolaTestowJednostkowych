@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using FluentAssertions;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,20 @@ namespace SzkolaTestowJednostkowych_UnitTests.Basics
 
             //Assert
             Assert.That(result,Is.EqualTo(3));
+        }
+
+        [Test]
+        //NazwaMetody_Scenariusz_OczekiwanyRezultat
+        public void Add_WhenCalled_ShouldReturnSum_FluentAssertions()
+        {
+            //Arrange
+            var calculator = new Calculator();
+
+            //Act
+            var result = calculator.Add(1, 2);
+
+            //Assert
+            result.Should().Be(3);
         }
     }
 }
