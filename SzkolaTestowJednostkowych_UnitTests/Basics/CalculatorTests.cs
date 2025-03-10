@@ -11,32 +11,54 @@ namespace SzkolaTestowJednostkowych_UnitTests.Basics
 {
     public class CalculatorTests
     {
+        private Calculator _calculator;
+
+
+        [OneTimeSetUp]
+        public void SetOneTimeSetUpUp()
+        {
+            _calculator = new Calculator();
+        }
+
+        [SetUp]
+        public void SetUp()
+        {
+            _calculator = new Calculator();
+        }
+
+        [TearDown]
+        public void TearDown()
+        { 
+            _calculator = null; 
+        }
+
+        [OneTimeTearDown]
+        public void OneTimeTearDown()
+        {
+            _calculator = null;
+        }
+
+
         [Test]
         //NazwaMetody_Scenariusz_OczekiwanyRezultat
         public void Add_WhenCalled_ShouldReturnSum()
         {
-            //Arrange
-            var calculator = new Calculator();
+            //Arrange - przygotowanie, inicjalizacja
+            //var calculator = new Calculator();
 
-            //Act
-            var result = calculator.Add(1, 2);
+            //Act - działanie
+            var result = _calculator.Add(1, 2);
 
-            //Assert
-            Assert.That(result,Is.EqualTo(3));
+            //Assert - weryfikacja
+            result.Should().Be(3);
         }
 
         [Test]
-        //NazwaMetody_Scenariusz_OczekiwanyRezultat
-        public void Add_WhenCalled_ShouldReturnSum_FluentAssertions()
-        {
-            //Arrange
-            var calculator = new Calculator();
+        public void Subtraction_WhenCalled_ShouldReturnSubtraction()
+        { 
+            var result = _calculator.Subtraction(1, 2);
 
-            //Act
-            var result = calculator.Add(1, 2);
-
-            //Assert
-            result.Should().Be(3);
+            result.Should().Be(-1);
         }
     }
 }
