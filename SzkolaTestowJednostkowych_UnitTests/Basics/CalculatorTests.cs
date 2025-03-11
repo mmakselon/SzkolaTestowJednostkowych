@@ -21,44 +21,21 @@ namespace SzkolaTestowJednostkowych_UnitTests.Basics
         }
 
 
-        [Test]
+        [TestCase(1, 2, 3)]
+        [TestCase(-1, -2, -3)]
+        [TestCase(1, -2, -1)]
         //NazwaMetody_Scenariusz_OczekiwanyRezultat
-        public void Add_TwoPositiveNumbers_ShouldReturnSum()
+        public void Add_WhenCalled_ShouldReturnSum(int number1, int number2, int expectedResult)
         {
             //Arrange - przygotowanie, inicjalizacja
             //var calculator = new Calculator();
 
             //Act - działanie
-            var result = _calculator.Add(1, 2);
+            var result = _calculator.Add(number1, number2);
 
             //Assert - weryfikacja
-            result.Should().Be(3);
-        }
-
-        [Test]
-        //NazwaMetody_Scenariusz_OczekiwanyRezultat
-        public void Add_TwoNegativeNumbers_ShouldReturnSum()
-        {
-            //Act - działanie
-            var result = _calculator.Add(-1, -2);
-
-            //Assert - weryfikacja
-            result.Should().Be(-3);
-        }
-
-        [Test]
-        //NazwaMetody_Scenariusz_OczekiwanyRezultat
-        public void Add_OnePositiveAdnOneNegativeNumbers_ShouldReturnSum()
-        {
-            //Arrange - przygotowanie, inicjalizacja
-            //var calculator = new Calculator();
-
-            //Act - działanie
-            var result = _calculator.Add(1, -2);
-
-            //Assert - weryfikacja
-            result.Should().Be(-1);
-        }
+            result.Should().Be(expectedResult);
+        }      
 
         [Test]
         public void Subtraction_WhenCalled_ShouldReturnSubtraction()
