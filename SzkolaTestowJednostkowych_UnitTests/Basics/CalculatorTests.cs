@@ -14,34 +14,16 @@ namespace SzkolaTestowJednostkowych_UnitTests.Basics
         private Calculator _calculator;
 
 
-        [OneTimeSetUp]
-        public void SetOneTimeSetUpUp()
-        {
-            _calculator = new Calculator();
-        }
-
         [SetUp]
         public void SetUp()
         {
             _calculator = new Calculator();
         }
 
-        [TearDown]
-        public void TearDown()
-        { 
-            _calculator = null; 
-        }
-
-        [OneTimeTearDown]
-        public void OneTimeTearDown()
-        {
-            _calculator = null;
-        }
-
 
         [Test]
         //NazwaMetody_Scenariusz_OczekiwanyRezultat
-        public void Add_WhenCalled_ShouldReturnSum()
+        public void Add_TwoPositiveNumbers_ShouldReturnSum()
         {
             //Arrange - przygotowanie, inicjalizacja
             //var calculator = new Calculator();
@@ -51,6 +33,31 @@ namespace SzkolaTestowJednostkowych_UnitTests.Basics
 
             //Assert - weryfikacja
             result.Should().Be(3);
+        }
+
+        [Test]
+        //NazwaMetody_Scenariusz_OczekiwanyRezultat
+        public void Add_TwoNegativeNumbers_ShouldReturnSum()
+        {
+            //Act - działanie
+            var result = _calculator.Add(-1, -2);
+
+            //Assert - weryfikacja
+            result.Should().Be(-3);
+        }
+
+        [Test]
+        //NazwaMetody_Scenariusz_OczekiwanyRezultat
+        public void Add_OnePositiveAdnOneNegativeNumbers_ShouldReturnSum()
+        {
+            //Arrange - przygotowanie, inicjalizacja
+            //var calculator = new Calculator();
+
+            //Act - działanie
+            var result = _calculator.Add(1, -2);
+
+            //Assert - weryfikacja
+            result.Should().Be(-1);
         }
 
         [Test]
