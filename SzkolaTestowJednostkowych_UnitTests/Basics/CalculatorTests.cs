@@ -14,8 +14,7 @@ namespace SzkolaTestowJednostkowych_UnitTests.Basics
         private Calculator _calculator;
 
 
-        [SetUp]
-        public void SetUp()
+        private void Init()
         {
             _calculator = new Calculator();
         }
@@ -29,6 +28,7 @@ namespace SzkolaTestowJednostkowych_UnitTests.Basics
         {
             //Arrange - przygotowanie, inicjalizacja
             //var calculator = new Calculator();
+            Init();
 
             //Act - działanie
             var result = _calculator.Add(number1, number2);
@@ -39,7 +39,9 @@ namespace SzkolaTestowJednostkowych_UnitTests.Basics
 
         [Test]
         public void Subtraction_WhenCalled_ShouldReturnSubtraction()
-        { 
+        {
+            Init();
+
             var result = _calculator.Subtraction(1, 2);
 
             result.Should().Be(-1);
