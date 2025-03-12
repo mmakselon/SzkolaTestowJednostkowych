@@ -115,8 +115,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Basics\BasketTests.cs" />
     <Compile Include="Basics\CalculatorTests.cs" />
-    <Compile Include="Basics\MathTest.cs" />
+    <Compile Include="Basics\MathTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -6,7 +6,7 @@ namespace SzkolaTestowJednostkowych.Basics
     {
         public decimal TotalPrice { get; set; }
 
-        public List<Product> Products { get; }
+        public List<Product> Products { get; } = new List<Product>();
 
         public void AddProduct(Product product)
         {

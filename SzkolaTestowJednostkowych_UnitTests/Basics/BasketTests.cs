@@ -5,22 +5,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SzkolaTestowJednostkowych.Basics;
 
 namespace SzkolaTestowJednostkowych_UnitTests.Basics
 {
-    class MathTest
+    class BasketTests
     {
         [Test]
-        public void GetNwd_WhenCalled_ShouldReturnNwd()
+        public void AddProduct_WhenCalled_ShouldUpdateTotalPrice()
         {
             //arrange
-            var math = new SzkolaTestowJednostkowych.Basics.Math();
+            var basket = new Basket();
+            basket.TotalPrice = 0;
 
             //act
-            var result = math.GetNwd(3, 6);
+            basket.AddProduct(new Product { Price = 1 });
 
             //assert
-            result.Should().Be(3);
+            basket.TotalPrice.Should().Be(1);
+
+
         }
     }
 }
