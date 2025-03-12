@@ -19,7 +19,6 @@ namespace SzkolaTestowJednostkowych_UnitTests.Basics
             _calculator = new Calculator();
         }
 
-
         [TestCase(1, 2, 3)]
         [TestCase(-1, -2, -3)]
         [TestCase(1, -2, -1)]
