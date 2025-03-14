@@ -40,5 +40,18 @@ namespace SzkolaTestowJednostkowych_UnitTests.Basics
             //evenNumbers.Should().NotBeEquivalentTo(new[] { 1, 3 });
             //evenNumbers.Should().OnlyHaveUniqueItems();
         }
+
+        [TestCase(2,"Even")]
+        [TestCase(4, "Even")]
+        [TestCase(1, "Odd")]
+        [TestCase(1, "Odd")]
+        public void GetEvenOrOddMsg_WhenCalled_ShouldReturnCorrectMsg(int number, string message)
+        {
+            var math = new SzkolaTestowJednostkowych.Basics.Math();
+
+            var msg = math.GetEvenOrOddMsg(number);
+
+            msg.Should().Be(message);
+        }
     }
 }

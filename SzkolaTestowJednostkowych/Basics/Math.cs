@@ -29,5 +29,13 @@ namespace SzkolaTestowJednostkowych.Basics
 
             return evenNumbers;
         }
+
+        public string GetEvenOrOddMsg(int number)
+        {
+            if (number % 2 == 0)
+                return "Even";
+
+            return "Odd";
+        }
     }
 }
