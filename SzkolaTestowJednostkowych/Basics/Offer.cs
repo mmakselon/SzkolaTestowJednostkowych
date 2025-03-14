@@ -15,7 +15,12 @@ namespace SzkolaTestowJednostkowych.Basics
 
             Title = title;
 
-            OfferChanged?.Invoke(this, Guid.NewGuid());
+            OnOfferChanged(Guid.NewGuid());
+        }
+
+        private void OnOfferChanged(Guid id)
+        {
+            OfferChanged?.Invoke(this, id);
         }
     }
 }
