@@ -11,6 +11,9 @@ namespace SzkolaTestowJednostkowych.Basics
 
         public void Enqueue(T value)
         {
+            if(value ==null)
+                throw new ArgumentNullException("");
+
             _list.Add(value);
         }
 

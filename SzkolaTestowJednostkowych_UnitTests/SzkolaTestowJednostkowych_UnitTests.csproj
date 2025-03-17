@@ -117,8 +117,10 @@
   <ItemGroup>
     <Compile Include="Basics\BasketTests.cs" />
     <Compile Include="Basics\CalculatorTests.cs" />
+    <Compile Include="Basics\FizzBuzzTests.cs" />
     <Compile Include="Basics\InvoiceTests.cs" />
     <Compile Include="Basics\MathTests.cs" />
+    <Compile Include="Basics\MyQueueTests.cs" />
     <Compile Include="Basics\OfferTests.cs" />
     <Compile Include="Basics\PersonTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
