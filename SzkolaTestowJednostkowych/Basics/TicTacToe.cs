@@ -7,6 +7,20 @@ namespace SzkolaTestowJednostkowych.Basics
     {
         private int _winner;
 
+        //0-puste pole
+        //1 - krzyżyk
+        //2 - kółko
+
+        //
+        //[ [0,0,1]
+        //  [0,1,2]
+        //  [2,1,0] ]
+
+        //-1 - rozgrywka niezakończona
+        //1 - wygrał krzyżyk
+        //2 - wygrało kółko
+        //0 - nikt nie wygrał
+
         public int SolveGame(int[,] board)
         {
             if (RowIsWon(board) || ColumnIsWon(board) || DiagonalIsWon(board))

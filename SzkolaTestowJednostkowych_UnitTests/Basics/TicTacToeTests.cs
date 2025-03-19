@@ -1,0 +1,54 @@
+﻿using FluentAssertions;
+using NUnit.Framework;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Numerics;
+using System.Text;
+using System.Threading.Tasks;
+using SzkolaTestowJednostkowych.Basics;
+
+namespace SzkolaTestowJednostkowych_UnitTests.Basics
+{
+    internal class TicTacToeTests
+    {
+
+        [TestCase(1)]
+        [TestCase(2)]
+        public void SolveGame_WhenPlayerWinsInRow_ShouldReturnPlayerNumber(int player)
+        {
+            var ticTacToe = new TicTacToe();
+            var board = new[,]
+            {
+                {player, player, player},
+                { 0,0,0},
+                { 2,1,0}
+            };
+
+            var result = ticTacToe.SolveGame(board);
+            result.Should().Be(player);
+        }
+
+        [TestCase(1)]
+        [TestCase(2)]
+        public void SolveGame_WhenPlayerWinsInColumn_ShouldReturnPlayerNumber()
+        {
+        }
+
+        [TestCase(1)]
+        [TestCase(2)]
+        public void SolveGame_WhenPlayerWinsInDiagonal_ShouldReturnPlayerNumber()
+        {
+        }
+
+        [Test]
+        public void SolveGame_WhenGameIsNotSolved_ShouldReturnMinusOne()
+        {
+        }
+
+        [Test]
+        public void SolveGame_WhenGameIsNotSolved_ShouldReturnZero()
+        {
+        }
+    }
+}

@@ -123,6 +123,7 @@
     <Compile Include="Basics\MyQueueTests.cs" />
     <Compile Include="Basics\OfferTests.cs" />
     <Compile Include="Basics\PersonTests.cs" />
+    <Compile Include="Basics\TicTacToeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
