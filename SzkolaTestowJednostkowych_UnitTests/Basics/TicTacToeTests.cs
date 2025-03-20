@@ -31,8 +31,18 @@ namespace SzkolaTestowJednostkowych_UnitTests.Basics
 
         [TestCase(1)]
         [TestCase(2)]
-        public void SolveGame_WhenPlayerWinsInColumn_ShouldReturnPlayerNumber()
+        public void SolveGame_WhenPlayerWinsInColumn_ShouldReturnPlayerNumber(int player)
         {
+            var ticTacToe = new TicTacToe();
+            var board = new[,]
+            {
+                {player, 2, 1},
+                {player,0,0},
+                {player,1,0}
+            };
+
+            var result = ticTacToe.SolveGame(board);
+            result.Should().Be(player);
         }
 
         [TestCase(1)]
