@@ -64,11 +64,31 @@ namespace SzkolaTestowJednostkowych_UnitTests.Basics
         [Test]
         public void SolveGame_WhenGameIsNotSolved_ShouldReturnMinusOne()
         {
+            var ticTacToe = new TicTacToe();
+            var board = new[,]
+            {
+                {1,2,1},
+                {1,2,0},
+                {0,1,2}
+            };
+
+            var result = ticTacToe.SolveGame(board);
+            result.Should().Be(-1);
         }
 
         [Test]
         public void SolveGame_WhenGameIsNotSolved_ShouldReturnZero()
         {
+            var ticTacToe = new TicTacToe();
+            var board = new[,]
+            {
+                {1,2,1},
+                {1,2,1},
+                {2,1,2}
+            };
+
+            var result = ticTacToe.SolveGame(board);
+            result.Should().Be(0);
         }
     }
 }

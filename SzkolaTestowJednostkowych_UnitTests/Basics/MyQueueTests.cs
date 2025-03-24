@@ -28,7 +28,7 @@ namespace SzkolaTestowJednostkowych_UnitTests.Basics
             action.Should().ThrowExactly<ArgumentNullException>();
         }
         [Test]
-        public void Equeue_WhenAddT_ShouldIncreaseCountFromList(Task value)
+        public void Equeue_WhenAddT_ShouldIncreaseCountFromList()
         {
             InitQueue();
 

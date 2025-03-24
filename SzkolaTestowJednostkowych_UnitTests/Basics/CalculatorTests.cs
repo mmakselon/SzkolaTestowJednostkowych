@@ -45,5 +45,25 @@ namespace SzkolaTestowJednostkowych_UnitTests.Basics
 
             result.Should().Be(-1);
         }
+
+        [Test]
+        public void Divide_WhenCalled_ShouldReturnDivision()
+        {
+            Init();
+
+            var result = _calculator.Divide(4, 2);
+
+            result.Should().Be(2);
+        }
+
+        [Test]
+        public void Divide_WhenDivisionIsZero_ShouldThrowDiveByZeroException()
+        {
+            Init();
+
+            Action action = () => _calculator.Divide(4, 0);
+
+            action.Should().ThrowExactly<DivideByZeroException>();
+        }
     }
 }
