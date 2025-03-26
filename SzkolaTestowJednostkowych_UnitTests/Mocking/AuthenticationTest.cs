@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using Moq;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,12 @@ namespace SzkolaTestowJednostkowych_UnitTests.Mocking
         [Test]
         public void Login_WhenCorrectData_ShouldReturnEmptyString()
         {
-            var authentication = new Authentication(new FakeUserRepository());
+            var mockUserRepository = new Mock<IUsersRepository>();
+            mockUserRepository
+                .Setup(x => x.Login("1", "2"))
+                .Returns(true);
+
+            var authentication = new Authentication(mockUserRepository.Object);
 
             var result = authentication.Login("1", "2");
 
@@ -25,9 +31,15 @@ namespace SzkolaTestowJednostkowych_UnitTests.Mocking
         [Test]
         public void Login_WhenInCorrectData_ShouldReturnCorrectMessage()
         {
-            var authentication = new Authentication(new FakeUserRepository());
+            var mockUserRepository = new Mock<IUsersRepository>();
 
-            var result = authentication.Login("1", "3");
+            mockUserRepository
+                .Setup(x => x.Login("1", "2"))
+                .Returns(false);
+
+            var authentication = new Authentication(mockUserRepository.Object);
+
+            var result = authentication.Login("1", "2");
 
             result.Should().Contain("User or password is incorrect.");
         }
