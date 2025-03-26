@@ -132,7 +132,6 @@
     <Compile Include="Basics\PersonTests.cs" />
     <Compile Include="Basics\TicTacToeTests.cs" />
     <Compile Include="Mocking\AuthenticationTest.cs" />
-    <Compile Include="Models\FakeUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
