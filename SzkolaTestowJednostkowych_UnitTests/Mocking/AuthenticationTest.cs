@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SzkolaTestowJednostkowych.Mocking;
-using SzkolaTestowJednostkowych_UnitTests.Models;
 
 namespace SzkolaTestowJednostkowych_UnitTests.Mocking
 {
