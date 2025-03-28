@@ -8,9 +8,16 @@ namespace SzkolaTestowJednostkowych.Mocking
 {
     public class Robot
     {
+        private IClock _clock;
+
+        public Robot(IClock clock)
+        {
+            _clock = clock;
+        }
+
         public string Greetings()
         {
-            if (DateTime.Now.Hour < 18)
+            if (_clock.GetCurrentHour() < 18)
                 return "Dzień dobry!";
 
             return "Dobry wieczór!";

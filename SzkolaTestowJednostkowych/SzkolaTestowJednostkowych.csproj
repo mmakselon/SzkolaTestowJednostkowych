@@ -81,6 +81,8 @@
     <Compile Include="Mocking\ConfigHelper.cs" />
     <Compile Include="Mocking\Customer.cs" />
     <Compile Include="Mocking\EmailSender.cs" />
+    <Compile Include="Mocking\IClock.cs" />
+    <Compile Include="Mocking\IFileReader.cs" />
     <Compile Include="Mocking\LuckyNumber.cs" />
     <Compile Include="Mocking\Number.cs" />
     <Compile Include="Mocking\OrderService.cs" />

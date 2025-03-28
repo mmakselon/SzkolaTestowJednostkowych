@@ -3,11 +3,6 @@ using System.IO;
 
 namespace SzkolaTestowJednostkowych.Mocking
 {
-    public interface IFileReader
-    {
-        string Read(string filename);
-    }
-
     public class FileReader : IFileReader
     {
         public string Read(string filename)
