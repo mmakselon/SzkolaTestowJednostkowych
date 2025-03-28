@@ -3,12 +3,36 @@ using System.IO;
 
 namespace SzkolaTestowJednostkowych.Mocking
 {
+    public interface IFileReader
+    {
+        string Read(string filename);
+    }
+
+    public class FileReader : IFileReader
+    {
+        public string Read(string filename)
+        {
+            return File.ReadAllText(filename);
+        }
+    }
+
     public class ConfigHelper
     {
+        private IFileReader _fileReader;
+        public ConfigHelper(IFileReader fileReader)
+        {
+            _fileReader = fileReader;
+        }
         public string GetConnectionString()
         {
-            var configFromFile = File.ReadAllText("config.txt");
+            var configFromFile = _fileReader.Read("config.txt");
             var config = JsonConvert.DeserializeObject<Config>(configFromFile);
+
+            if (config == null)
+            {
+                throw new System.Exception("Incorrect parsing config.");
+            }
+
             return config.ConnectionString;            
         }
     }
