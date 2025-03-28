@@ -45,10 +45,19 @@ namespace SzkolaTestowJednostkowych_UnitTests.Mocking
         }
 
         //jedna ogólna metoda zamiast dwóch powyżej
-        [Test]
-        public void Method_Scenario_ExpectedBehaviour()
+        [TestCase("2025-01-01 17:59", "Dzień dobry")]
+        [TestCase("2025-01-01 18:00", "Dobry wieczór")]
+        [TestCase("2025-01-01 18:01", "Dobry wieczór")]
+        public void Greetings_WhenCalled_ShouldReturnCorrectMessage(DateTime date, string expectedMessage)
         {
+            var mockClock = new Mock<IClock>();
+            mockClock.Setup(c => c.GetCurrentHour()).Returns(date.Hour);
+            var robot = new Robot(mockClock.Object);
 
+            // Act
+            var result = robot.Greetings();
+
+            result.Should().Contain(expectedMessage);
         }
     }
 }
