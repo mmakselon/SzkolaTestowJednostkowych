@@ -138,6 +138,7 @@
     <Compile Include="Mocking\ConfigHelperTests.cs" />
     <Compile Include="Mocking\OrderServiceTests.cs" />
     <Compile Include="Mocking\RobotTests.cs" />
+    <Compile Include="Mocking\TaskServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

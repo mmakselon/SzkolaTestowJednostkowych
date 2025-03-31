@@ -7,34 +7,45 @@ namespace SzkolaTestowJednostkowych.Mocking
 {
     public class TaskService
     {
-        private Logger _logger = LogManager.GetCurrentClassLogger();
-        private ApplicationDbContext _context;
+        private ILogger _logger;
+        private IEmailSender _emailSender;
+        private IUnitOfWork _unitOfWork;
+        private IMessageBoxWrapper _messageBox;
 
-        public TaskService()
+        public TaskService(ILogger logger, IEmailSender emailSender, IUnitOfWork unitOfWork, IMessageBoxWrapper messageBox)
         {
-            _context = new ApplicationDbContext();
+            _logger = logger;
+            _emailSender = emailSender ?? throw new ArgumentNullException(nameof(emailSender));
+            _unitOfWork = unitOfWork;
+            _messageBox = messageBox;
         }
 
         public void CloseTask(int taskId)
         {
-            var task = _context.Tasks.FirstOrDefault(x => x.Id == taskId);
+            var task = _unitOfWork.Task.GetTask(taskId);
+
+            if (task == null)
+                throw new Exception("Notfound task.");
+
+            if (task.IsClosed)
+                throw new Exception("The task is already closed.");
 
             task.IsClosed = true;
-            _context.SaveChanges();
+            _unitOfWork.Complete();
 
             try
             {
-                new EmailSender().Send(
+                _emailSender.Send(
                     $"Zadanie {task.Title}",
                     $"Zadanie {task.Title} zostało zamknięte.",
                     task.User.Email);
 
-                MessageBox.Show("Wysyłanie e-mail'a zakończono sukcesem.");
+                _messageBox.Show("Wysyłanie e-mail'a zakończono sukcesem.");
             }
             catch (Exception exception)
             {
                 _logger.Error(exception, $"Wysyłanie e-mail zakończone błędem {exception.Message}.");
-                MessageBox.Show("Wysyłanie e-mail'a zakończono błędem.");
+                _messageBox.Show("Wysyłanie e-mail'a zakończono błędem.");
             }
         }
     }
