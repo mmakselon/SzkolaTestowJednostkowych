@@ -136,6 +136,7 @@
     <Compile Include="Basics\TicTacToeTests.cs" />
     <Compile Include="Mocking\AuthenticationTest.cs" />
     <Compile Include="Mocking\ConfigHelperTests.cs" />
+    <Compile Include="Mocking\LuckyNumberTests.cs" />
     <Compile Include="Mocking\OrderServiceTests.cs" />
     <Compile Include="Mocking\RobotTests.cs" />
     <Compile Include="Mocking\TaskServiceTests.cs" />
